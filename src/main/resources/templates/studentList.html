@@ -24,13 +24,13 @@
         </thead>
         <tbody>
         <tr th:each="student : ${studentArrayList}">
-            <td th:text="${student.id}">1</td>
+            <td th:text="${student.id}"></td>
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.age}"></td>
             <td th:text="${student.degree}"></td>
             <td>
-                <form action="" method="post">
+                <form action="/student/list" method="post">
                     <button id="updateBtn" type="submit">Update</button>
                     <button id="deleteBtn" type="submit">Delete</button>
                 </form>
