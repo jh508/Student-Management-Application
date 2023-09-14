@@ -4,10 +4,7 @@ import com.studentmanagement.StudentManagementApp.Services.StudentArrayListServi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/student")
@@ -27,7 +24,7 @@ public class StudentController {
                               @RequestParam("age") int age,
                               @RequestParam("degree") String degree)
     {
-        studentArrayListService.addStudent(new Student(1L, firstName, lastName, age, degree));
+        studentArrayListService.addStudent(new Student(firstName, lastName, age, degree));
 
         return "redirect:/student/list";
     }
@@ -38,8 +35,10 @@ public class StudentController {
         return "studentList";
     }
 
-
-    public String deleteStudent() {
-        return null;
+    @PostMapping("/list")
+    public String deleteStudent(@RequestParam("id") Long id){
+        studentArrayListService.deleteStudent(id);
+        return "redirect:/student/list";
     }
+
 }

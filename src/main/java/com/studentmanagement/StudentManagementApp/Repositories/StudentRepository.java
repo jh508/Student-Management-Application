@@ -1,25 +1,34 @@
 package com.studentmanagement.StudentManagementApp.Repositories;
 
+import com.studentmanagement.StudentManagementApp.Student.Student;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 public class StudentRepository implements IStudentRepository{
+
     @Override
-    public String addStudent() {
-        return null;
+    public void addStudent(Student student) {
+
     }
 
     @Override
-    public String postStudent() {
-        return null;
+    public void deleteStudent(Long id) {
+
     }
 
     @Override
-    public String getStudents(Model model) {
-        return null;
+    public void updateStudent(Student student) {
+
     }
 
     @Override
-    public String deleteStudent() {
+    public long generateID() {
+        return 0;
+    }
+
+    @Override
+    public List<Student> getStudents() {
         return null;
     }
 }

@@ -10,7 +10,7 @@ public interface IStudentService {
 
     void addStudent(Student student);
 
-    void deleteStudent(Student student);
+    void deleteStudent(Long id);
 
     void updateStudent(Student student);
 

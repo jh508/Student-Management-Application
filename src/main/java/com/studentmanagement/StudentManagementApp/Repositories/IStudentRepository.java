@@ -1,20 +1,21 @@
 package com.studentmanagement.StudentManagementApp.Repositories;
 
+import com.studentmanagement.StudentManagementApp.Student.Student;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
+
+import java.util.List;
 
 @Repository
 public interface IStudentRepository {
 
-    String addStudent();
+    void addStudent(Student student);
 
+    void deleteStudent(Long id);
 
-    String postStudent();
+    void updateStudent(Student student);
 
+    long generateID();
 
-    String getStudents(Model model);
-
-
-    String deleteStudent();
+    List<Student> getStudents();
 
 }
