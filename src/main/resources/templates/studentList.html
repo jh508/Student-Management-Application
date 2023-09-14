@@ -29,7 +29,12 @@
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.age}"></td>
             <td th:text="${student.degree}"></td>
-            <td><button type="submit">Delete</button></td>
+            <td>
+                <form action="" method="post">
+                    <button id="updateBtn" type="submit">Update</button>
+                    <button id="deleteBtn" type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

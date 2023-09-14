@@ -1,33 +1,47 @@
 package com.studentmanagement.StudentManagementApp.Student;
 
+import com.studentmanagement.StudentManagementApp.Repositories.IStudentRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Student")
-public class StudentController {
+@RequestMapping("/student")
+public class StudentController implements IStudentRepository {
     List<Student> studentArrayList = new ArrayList<>();
-    @GetMapping("/List")
-    public String getStudents(Model model){
-        studentArrayList.add(new Student(1L, "Bob", "Marley", 22, "Computer Science"));
-        studentArrayList.add(new Student(2L, "Jon", "Mcarthy", 28, "Design and Technology"));
-        studentArrayList.add(new Student(3L, "Elliot", "Pilkington", 29, "Psychology"));
+
+    @GetMapping("/add")
+    public String addStudent() {
+
+        return "addStudent";
+    }
+
+    @PostMapping("/add")
+    public String postStudent(@RequestParam("firstName") String firstName,
+                              @RequestParam("lastName") String lastName,
+                              @RequestParam("age") int age,
+                              @RequestParam("degree") String degree)
+    {
+
+        studentArrayList.add(new Student(1L, firstName, lastName, age, degree));
+
+        return "redirect:/student/list";
+    }
+
+    @GetMapping("/list")
+    public String getStudents(Model model) {
         model.addAttribute("studentArrayList", studentArrayList);
         return "studentList";
     }
 
 
-    @PostMapping("/List")
-    public String deleteStudent(@RequestBody(required = true) Long id){
-
-        return "studentList";
+    public String deleteStudent() {
+        return null;
     }
-
 }

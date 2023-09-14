@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student List</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/addStudent.css}" />
+</head>
+<body>
+<div class = "container">
+  <div class = "col">
+    <div class = "content">
+      <form action="/student/add" method="post">
+    <p>First Name: </p>
+    <input type="text" name="firstName" id="firstName">
+    <p>Last Name: </p>
+    <input type="text" name="lastName" id="lastName">
+    <p>Age </p>
+    <input type="text" name="age" id="age">
+    <p>Degree Title</p>
+    <input type="text" name="degree" id="degree">
+        <button type="submit">Add</button>
+      </form>
+
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

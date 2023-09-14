@@ -24,6 +24,20 @@ tr:hover {
     justify-content: center;
 }
 
+#updateBtn{
+    background-color: #0d6efd;
+    border: transparent;
+    color: white;
+    height: 30px;
+}
+
+#deleteBtn{
+     background-color: #dc3545;
+     border: transparent;
+     color: white;
+     height: 30px;
+ }
+
 h1 {
     color: #333;
 }
