@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/StudentList.css}" />
+</head>
+<body>
+<div class = "container">
+<h1>Student List</h1>
+</div>
+
+<div class = "tcontainer">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Degree</th>
+            <th>Modify</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${studentArrayList}">
+            <td th:text="${student.id}">1</td>
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.age}"></td>
+            <td th:text="${student.degree}"></td>
+            <td><button type="submit">Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
