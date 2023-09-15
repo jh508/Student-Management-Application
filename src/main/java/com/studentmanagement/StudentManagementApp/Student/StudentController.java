@@ -35,6 +35,11 @@ public class StudentController {
         return "studentList";
     }
 
+    @GetMapping("/update")
+    public String updateStudents(){
+        return "updateStudent";
+    }
+
     @PostMapping("/list")
     public String deleteStudent(@RequestParam("id") Long id){
         studentArrayListService.deleteStudent(id);
