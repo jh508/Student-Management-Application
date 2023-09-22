@@ -21,14 +21,32 @@ public class StudentArrayListService implements IStudentService {
 
     @Override
     public void deleteStudent(Long id) {
+
         studentRepository.getStudents().removeIf(s -> Objects.equals(s.getId(), id));
     }
 
 
 
     @Override
-    public void updateStudent(Student student) {
+    public void updateStudent(Long id, String firstName, String lastName, int age, String degree) {
+        for(Student s : studentRepository.getStudents()){
+            if(s.getId().equals(id)){
+                s.setFirstName(firstName);
+                s.setAge(age);
+                s.setLastName(lastName);
+                s.setDegree(degree);
+            }
+        }
+    }
 
+    @Override
+    public Student getStudent(Long id) {
+        for(Student s : studentRepository.getStudents()){
+            if(s.getId().equals(id)){
+                return s;
+            }
+        }
+        return null;
     }
 
     @Override

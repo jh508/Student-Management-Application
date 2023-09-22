@@ -12,7 +12,9 @@ public interface IStudentService {
 
     void deleteStudent(Long id);
 
-    void updateStudent(Student student);
+    void updateStudent(Long id, String firstName, String lastName, int age, String degree);
+
+    Student getStudent(Long id);
 
     List<Student> getStudents();
 

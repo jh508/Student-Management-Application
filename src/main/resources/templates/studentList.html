@@ -30,8 +30,10 @@
             <td th:text="${student.age}"></td>
             <td th:text="${student.degree}"></td>
             <td>
+                <form action="/student/update/" method="get">
+                    <button id="updateBtn" name="idToUpdate" th:value="${student.id}" type="submit">Update</button>
+                </form>
                 <form action="/student/list" method="post">
-                    <button id="updateBtn" type="submit">Update</button>
                     <button id="deleteBtn" name="id" th:value="${student.id}" type="submit">Delete</button>
                 </form>
             </td>

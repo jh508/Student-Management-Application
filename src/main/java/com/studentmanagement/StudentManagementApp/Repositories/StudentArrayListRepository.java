@@ -29,7 +29,7 @@ public class StudentArrayListRepository implements IStudentRepository{
 
     @Override
     public long generateID() {
-        long id = 0;
+        long id = 1;
         if(!studentList.isEmpty()){
             id = studentList.size();
         }
