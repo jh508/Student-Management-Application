@@ -9,7 +9,8 @@
 <div class = "container">
   <div class = "col">
     <div class = "header">
-      <p id="card-header">Update Student to the Database<p>
+      <p th:inline="text" id="card-header">You are currently updating:<p>
+      <p th:inline="text" id="card-header-name">[[${firstName}]] [[${lastName}]]<p>
     </div>
     <div class = "card-body">
       <form action="/student/update" method="post">
