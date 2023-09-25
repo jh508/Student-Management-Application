@@ -29,14 +29,7 @@ public class StudentArrayListService implements IStudentService {
 
     @Override
     public void updateStudent(Long id, String firstName, String lastName, int age, String degree) {
-        for(Student s : studentRepository.getStudents()){
-            if(s.getId().equals(id)){
-                s.setFirstName(firstName);
-                s.setAge(age);
-                s.setLastName(lastName);
-                s.setDegree(degree);
-            }
-        }
+        studentRepository.updateStudent(id, firstName, lastName, age, degree);
     }
 
     @Override

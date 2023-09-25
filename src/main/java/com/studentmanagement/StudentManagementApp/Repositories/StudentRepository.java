@@ -18,7 +18,7 @@ public class StudentRepository implements IStudentRepository{
     }
 
     @Override
-    public void updateStudent(Student student) {
+    public void updateStudent(Long id, String firstName, String lastName, int age, String degree) {
 
     }
 

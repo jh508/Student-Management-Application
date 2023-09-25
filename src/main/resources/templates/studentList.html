@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Student List</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/StudentList.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/studentList.css}" />
 </head>
 <body>
 <div class = "container">
@@ -29,7 +29,7 @@
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.age}"></td>
             <td th:text="${student.degree}"></td>
-            <td>
+            <td id="buttons">
                 <form action="/student/update/" method="get">
                     <button id="updateBtn" name="idToUpdate" th:value="${student.id}" type="submit">Update</button>
                 </form>

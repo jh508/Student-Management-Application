@@ -31,6 +31,11 @@ tr:hover {
     height: 30px;
 }
 
+#buttons{
+    display: flex;
+    gap: 10px;
+}
+
 #deleteBtn{
      background-color: #dc3545;
      border: transparent;

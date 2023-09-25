@@ -23,13 +23,20 @@ public class StudentArrayListRepository implements IStudentRepository{
     }
 
     @Override
-    public void updateStudent(Student student) {
-
+    public void updateStudent(Long id, String firstName, String lastName, int age, String degree) {
+        for(Student s : studentList){
+            if(s.getId().equals(id)){
+                s.setFirstName(firstName);
+                s.setAge(age);
+                s.setLastName(lastName);
+                s.setDegree(degree);
+            }
+        }
     }
 
     @Override
     public long generateID() {
-        long id = 1;
+        long id = 0;
         if(!studentList.isEmpty()){
             id = studentList.size();
         }

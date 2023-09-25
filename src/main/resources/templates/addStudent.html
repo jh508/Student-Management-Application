@@ -2,27 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Student List</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/addStudent.css}" />
+  <title>Add Student</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/addStudent.css?version=51}" />
 </head>
 <body>
 <div class = "container">
   <div class = "col">
-    <div class = "content">
+    <div class = "header">
+      <p id="card-header">Add Student to the Database<p>
+    </div>
+    <div class = "card-body">
       <form action="/student/add" method="post">
-    <p>First Name: </p>
-    <input type="text" name="firstName" id="firstName">
-    <p>Last Name: </p>
-    <input type="text" name="lastName" id="lastName">
-    <p>Age </p>
-    <input type="text" name="age" id="age">
-    <p>Degree Title</p>
-    <input type="text" name="degree" id="degree">
-        <button type="submit">Add</button>
+        <input type="text" name="firstName" th:value="${firstName}" id="firstName" placeholder="First Name">
+        <input type="text" name="lastName" th:value="${lastName}" id="lastName" placeholder="Last Name">
+        <input type="text" name="age" th:value="${age}" id="age" placeholder="Age">
+        <input type="text" name="degree" th:value="${degree}" id="degree" placeholder="Degree">
+        <div id="buttons">
+          <button name="submitButton" value="update" type="submit">Update</button>
+          <button name="submitButton" value="cancel" type="submit">Cancel</button>
+        </div>
       </form>
-
+    </div>
   </div>
-</div>
 
 </div>
 

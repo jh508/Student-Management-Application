@@ -22,8 +22,13 @@ public class StudentController {
     public String postStudent(@RequestParam("firstName") String firstName,
                               @RequestParam("lastName") String lastName,
                               @RequestParam("age") int age,
-                              @RequestParam("degree") String degree)
+                              @RequestParam("degree") String degree,
+                              @RequestParam("submitButton") String button)
     {
+
+        if("cancel".equals(button)){
+            return "redirect:/student/list";
+        }
         studentArrayListService.addStudent(new Student(firstName, lastName, age, degree));
 
         return "redirect:/student/list";
@@ -51,7 +56,12 @@ public class StudentController {
                                        @RequestParam("firstName") String firstName,
                                        @RequestParam("lastName") String lastName,
                                        @RequestParam("age") int age,
-                                       @RequestParam("degree") String degree){
+                                       @RequestParam("degree") String degree,
+                                       @RequestParam("submitButton") String button){
+
+        if("cancel".equals(button)){
+            return "redirect:/student/list";
+        }
 
         studentArrayListService.getStudent(id).setFirstName(firstName);
         studentArrayListService.getStudent(id).setLastName(lastName);
