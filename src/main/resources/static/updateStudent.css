@@ -31,12 +31,6 @@ body {
     font-weight: bold;
 }
 
-#card-header-name{
-    font-size: larger;
-    font-weight: bolder;
-    color: #6658d3;
-}
-
 input {
     border: none;
     background-color: aliceblue;

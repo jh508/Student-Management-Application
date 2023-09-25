@@ -8,9 +8,10 @@
 <body>
 <div class = "container">
   <div class = "col">
-    <div class = "header">
-      <p th:inline="text" id="card-header">You are currently updating:<p>
-      <p th:inline="text" id="card-header-name">[[${firstName}]] [[${lastName}]]<p>
+    <div class="header">
+      <p th:inline="text" id="card-header" style="font-size: larger; font-weight: bold;">Updating user:
+        <span th:inline="text" style="color: #6658d3;">[[${firstName}]] [[${lastName}]]</span>
+      </p>
     </div>
     <div class = "card-body">
       <form action="/student/update" method="post">
