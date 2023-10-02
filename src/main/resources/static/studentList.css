@@ -15,8 +15,34 @@ tr:hover {
 }
 
 .container{
-    display:flex;
     justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.titleContainer{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.addBtn{
+    justify-self: flex-end;
+}
+
+
+
+#newEntry{
+    background-color: #198754;
+    border: transparent;
+    color: white;
+    height: 30px;
+    width: 100px;
 }
 
 .tcontainer{

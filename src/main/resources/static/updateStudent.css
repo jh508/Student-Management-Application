@@ -41,6 +41,10 @@ input {
     transition: border-color 0.5s;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 input:focus {
     border-color: #6658d3;
     outline: none;

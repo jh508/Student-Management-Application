@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Repository("arraylist")
 public class StudentArrayListRepository implements IStudentRepository{
     private final List<Student> studentList = new ArrayList<>();
 
@@ -35,14 +35,20 @@ public class StudentArrayListRepository implements IStudentRepository{
     }
 
     @Override
+    public Student findbyID(Long id) {
+        return null;
+    }
+
     public long generateID() {
-        long id = 0;
-        if(!studentList.isEmpty()){
-            id = studentList.size();
+        long id = studentList.size();
+        if(id != 0){
+            id++;
         }
 
         return id;
     }
+
+
 
     @Override
     public List<Student> getStudents() {

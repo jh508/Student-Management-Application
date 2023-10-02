@@ -14,7 +14,8 @@ public interface IStudentRepository {
 
     void updateStudent(Long id, String firstName, String lastName, int age, String degree);
 
-    long generateID();
+
+    Student findbyID(Long id);
 
     List<Student> getStudents();
 

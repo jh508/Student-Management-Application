@@ -1,11 +1,27 @@
 package com.studentmanagement.StudentManagementApp.Student;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "student")
 public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "age")
     private int age;
+    @Column(name = "degree")
     private String degree;
+
+    public Student(){
+    }
 
     public Student(String firstName, String lastName, int age, String degree) {
         this.firstName = firstName;

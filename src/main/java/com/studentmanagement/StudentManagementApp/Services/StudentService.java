@@ -6,15 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
-import java.util.Objects;
 
 @Service
-public class StudentArrayListService implements IStudentService {
+public class StudentService implements IStudentService {
+
     @Autowired
-    @Qualifier("arraylist")
-   private IStudentRepository studentRepository;
+    @Qualifier("database")
+    private IStudentRepository studentRepository;
 
     @Override
     public void addStudent(Student student) {
@@ -23,11 +22,8 @@ public class StudentArrayListService implements IStudentService {
 
     @Override
     public void deleteStudent(Long id) {
-
-        studentRepository.getStudents().removeIf(s -> Objects.equals(s.getId(), id));
+        studentRepository.deleteStudent(id);
     }
-
-
 
     @Override
     public void updateStudent(Long id, String firstName, String lastName, int age, String degree) {
@@ -36,16 +32,13 @@ public class StudentArrayListService implements IStudentService {
 
     @Override
     public Student getStudent(Long id) {
-        for(Student s : studentRepository.getStudents()){
-            if(s.getId().equals(id)){
-                return s;
-            }
-        }
-        return null;
+        return studentRepository.findbyID(id);
+
     }
 
     @Override
     public List<Student> getStudents() {
         return studentRepository.getStudents();
     }
+
 }

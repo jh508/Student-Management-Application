@@ -1,6 +1,7 @@
 package com.studentmanagement.StudentManagementApp.Student;
 
-import com.studentmanagement.StudentManagementApp.Services.StudentArrayListService;
+
+import com.studentmanagement.StudentManagementApp.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/student")
 public class StudentController {
     @Autowired
-    StudentArrayListService studentArrayListService;
+    private StudentService studentService;
 
     @GetMapping("/add")
     public String addStudent() {
@@ -29,14 +30,15 @@ public class StudentController {
         if("cancel".equals(button)){
             return "redirect:/student/list";
         }
-        studentArrayListService.addStudent(new Student(firstName, lastName, age, degree));
+
+        studentService.addStudent(new Student(firstName, lastName, age, degree));
 
         return "redirect:/student/list";
     }
 
     @GetMapping("/list")
     public String getStudents(Model model) {
-        model.addAttribute("studentArrayList", studentArrayListService.getStudents());
+        model.addAttribute("studentArrayList", studentService.getStudents());
         return "studentList";
     }
 
@@ -44,10 +46,10 @@ public class StudentController {
     public String updateStudents(@RequestParam("idToUpdate") long id, Model model)
     {
         model.addAttribute("idToUpdate", id);
-        model.addAttribute("firstName", studentArrayListService.getStudent(id).getFirstName());
-        model.addAttribute("lastName", studentArrayListService.getStudent(id).getLastName());
-        model.addAttribute("age", studentArrayListService.getStudent(id).getAge());
-        model.addAttribute("degree", studentArrayListService.getStudent(id).getDegree());
+        model.addAttribute("firstName", studentService.getStudent(id).getFirstName());
+        model.addAttribute("lastName", studentService.getStudent(id).getLastName());
+        model.addAttribute("age", studentService.getStudent(id).getAge());
+        model.addAttribute("degree", studentService.getStudent(id).getDegree());
         return "updateStudent";
     }
 
@@ -63,17 +65,15 @@ public class StudentController {
             return "redirect:/student/list";
         }
 
-        studentArrayListService.getStudent(id).setFirstName(firstName);
-        studentArrayListService.getStudent(id).setLastName(lastName);
-        studentArrayListService.getStudent(id).setAge(age);
-        studentArrayListService.getStudent(id).setDegree(degree);
+        studentService.updateStudent(id, firstName, lastName, age, degree);
+
         return "redirect:/student/list";
 
     }
 
     @PostMapping("/list")
     public String deleteStudent(@RequestParam("id") Long id){
-        studentArrayListService.deleteStudent(id);
+        studentService.deleteStudent(id);
         return "redirect:/student/list";
     }
 
