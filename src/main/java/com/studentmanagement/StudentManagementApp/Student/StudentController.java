@@ -38,16 +38,41 @@ public class StudentController {
     @PostMapping("/add")
     public String postStudent(@RequestParam("firstName") String firstName,
                               @RequestParam("lastName") String lastName,
-                              @RequestParam("age") int age,
+                              @RequestParam("age") String age,
                               @RequestParam("degree") String degree,
-                              @RequestParam("submitButton") String button)
+                              @RequestParam("submitButton") String button,
+                              Model model)
     {
 
         if("cancel".equals(button)){
             return "redirect:/student/list";
         }
 
-        studentService.addStudent(new Student(firstName, lastName, age, degree));
+        if(firstName.contains(" ") || firstName.equals("")){
+            model.addAttribute("invalidFirstName", "Invalid First Name");
+            return "addStudent";
+        }
+
+        if(lastName.contains(" ") || lastName.equals("")){
+            model.addAttribute("invalidLastName", "Invalid Last Name");
+            return "addStudent";
+        }
+
+        if(degree.isBlank()){
+            model.addAttribute("invalidDegree", "Invalid Degree Name");
+            return "addStudent";
+        }
+
+        try{
+            int parsedAge = Integer.parseInt(age);
+
+            studentService.addStudent(new Student(firstName.trim(), lastName.trim(), parsedAge, degree.trim()));
+        }
+        catch (NumberFormatException ex){
+            model.addAttribute("invalidAge", "Age must be a valid integer.");
+            return "addStudent";
+        }
+
 
         return "redirect:/student/list";
     }

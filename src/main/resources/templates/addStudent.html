@@ -14,9 +14,13 @@
     <div class="card-body">
       <form action="/student/add" method="post">
         <input type="text" name="firstName" th:value="${firstName}" id="firstName" placeholder="First Name">
+        <p id="error-message-firstName" th:text="${invalidFirstName}"></p>
         <input type="text" name="lastName" th:value="${lastName}" id="lastName" placeholder="Last Name">
+        <p id="error-message-lastName" th:text="${invalidLastName}"></p>
         <input type="text" name="age" th:value="${age}" id="age" placeholder="Age">
+        <p id="error-message-age" th:text="${invalidAge}"></p>
         <input type="text" name="degree" th:value="${degree}" id="degree" placeholder="Degree">
+        <p id="error-message-degree" th:text="${invalidDegree}"></p>
         <div id="buttons">
           <button name="submitButton" value="update" type="submit">Update</button>
           <a href="/student/list">Cancel</a>
@@ -26,5 +30,8 @@
   </div>
 </div>
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/JavaScript/AddStudent.js"></script>
 </body>
 </html>

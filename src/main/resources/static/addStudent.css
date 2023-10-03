@@ -53,6 +53,34 @@ a{
     font-weight: bold;
 }
 
+#error-message-firstName{
+    margin-top: -5px;
+    color: red;
+    display: none;
+    font-size: medium;
+}
+
+#error-message-lastName{
+    margin-top: -5px;
+    color: red;
+    display: none;
+    font-size: medium;
+}
+
+#error-message-age{
+    margin-top: -5px;
+    color: red;
+    display: none;
+    font-size: medium;
+}
+
+#error-message-degree{
+    margin-top: -5px;
+    color: red;
+    display: none;
+    font-size: medium;
+}
+
 input {
     border: none;
     background-color: aliceblue;
