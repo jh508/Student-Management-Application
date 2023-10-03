@@ -1,6 +1,6 @@
 package com.studentmanagement.StudentManagementApp.Utilities;
 
-public final class StudentServiceUtility {
+public final class StudentControllerUtility {
 
     private static final String INVALID_CHARACTERS = "<>/.,'=+-_`@!#$%^&*()_+[]{}?;:~0123456789";
 

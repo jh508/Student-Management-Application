@@ -2,7 +2,7 @@ package com.studentmanagement.StudentManagementApp.Student;
 
 
 import com.studentmanagement.StudentManagementApp.Services.StudentService;
-import com.studentmanagement.StudentManagementApp.Utilities.StudentServiceUtility;
+import com.studentmanagement.StudentManagementApp.Utilities.StudentControllerUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,17 +49,17 @@ public class StudentController {
             return "redirect:/student/list";
         }
 
-        if(firstName.contains(" ") || firstName.equals("") || StudentServiceUtility.containsInvalidCharacters(firstName)){
+        if(firstName.contains(" ") || firstName.equals("") || StudentControllerUtility.containsInvalidCharacters(firstName)){
             model.addAttribute("invalidFirstName", "Invalid First Name");
             return "addStudent";
         }
 
-        if(lastName.contains(" ") || lastName.equals("") || StudentServiceUtility.containsInvalidCharacters(lastName)){
+        if(lastName.contains(" ") || lastName.equals("") || StudentControllerUtility.containsInvalidCharacters(lastName)){
             model.addAttribute("invalidLastName", "Invalid Last Name");
             return "addStudent";
         }
 
-        if(degree.isBlank() || StudentServiceUtility.containsInvalidCharacters(degree)){
+        if(degree.isBlank() || StudentControllerUtility.containsInvalidCharacters(degree)){
             model.addAttribute("invalidDegree", "Invalid Degree Name");
             return "addStudent";
         }
@@ -139,7 +139,7 @@ public class StudentController {
         final String last_Name = lastName.trim();
         final String degree_Name = degree.trim();
 
-        if(first_Name.contains(" ") || first_Name.isBlank() || StudentServiceUtility.containsInvalidCharacters(first_Name)){
+        if(first_Name.contains(" ") || first_Name.isBlank() || StudentControllerUtility.containsInvalidCharacters(first_Name)){
             model.addAttribute("invalidFirstName", "Invalid First Name");
             model.addAttribute("idToUpdate", id);
             model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());
@@ -150,7 +150,7 @@ public class StudentController {
             return "updateStudent";
         }
 
-        if(last_Name.contains(" ") || last_Name.isBlank() || StudentServiceUtility.containsInvalidCharacters(lastName)){
+        if(last_Name.contains(" ") || last_Name.isBlank() || StudentControllerUtility.containsInvalidCharacters(lastName)){
             model.addAttribute("invalidLastName", "Invalid Last Name");
             model.addAttribute("idToUpdate", id);
             model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());
@@ -161,7 +161,7 @@ public class StudentController {
             return "updateStudent";
         }
 
-        if(degree_Name.isBlank() || StudentServiceUtility.containsInvalidCharacters(degree_Name)){
+        if(degree_Name.isBlank() || StudentControllerUtility.containsInvalidCharacters(degree_Name)){
             model.addAttribute("invalidDegree", "Invalid Degree Name");
             model.addAttribute("idToUpdate", id);
             model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());
