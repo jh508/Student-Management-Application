@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Student List</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/studentList.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/studentList.css?version=51}" />
 </head>
 <body>
 <div class = "container">
-<h1>Student List</h1>
-</div>
+    <div class="titleContainer">
+        <h1>Student List</h1>
+        <form action="/student/add" method="get">
+            <button id="newEntry" type="submit">New Entry</button>
+        </form>
+    </div>
 
 <div class = "tcontainer">
     <table>

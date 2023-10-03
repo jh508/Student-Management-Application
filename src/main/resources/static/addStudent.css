@@ -29,8 +29,24 @@ body {
 #buttons{
     display: flex;
     gap: 20px;
-    width: 120%;
+    width: 100%;
 }
+
+a{
+    display: flex;
+    font-size: inherit;
+    justify-content: center;
+    width: 40%;
+    text-decoration: none;
+    align-self: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #6658d3;
+    color: #fff;
+}
+
 
 #card-header {
     font-size: larger;
@@ -62,6 +78,19 @@ form p {
     font-size: 20px;
     color: #6658d3;
 }
+
+.titleContainer{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+.addBtn{
+    justify-self: flex-end;
+}
+
+
 
 form button {
     width: 50%;
