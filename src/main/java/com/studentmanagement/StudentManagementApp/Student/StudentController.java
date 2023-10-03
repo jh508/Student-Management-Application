@@ -101,6 +101,7 @@ public class StudentController {
     public String updateStudents(@RequestParam("idToUpdate") long id, Model model)
     {
         model.addAttribute("idToUpdate", id);
+        model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());
         model.addAttribute("firstName", studentService.getStudent(id).getFirstName());
         model.addAttribute("lastName", studentService.getStudent(id).getLastName());
         model.addAttribute("age", studentService.getStudent(id).getAge());
@@ -124,15 +125,67 @@ public class StudentController {
     public String updateStudentRequest(@RequestParam("idToUpdate") long id,
                                        @RequestParam("firstName") String firstName,
                                        @RequestParam("lastName") String lastName,
-                                       @RequestParam("age") int age,
+                                       @RequestParam("age") String age,
                                        @RequestParam("degree") String degree,
-                                       @RequestParam("submitButton") String button) {
+                                       @RequestParam("submitButton") String button,
+                                       Model model) {
 
         if ("cancel".equals(button)) {
             return "redirect:/student/list";
         }
 
-        studentService.updateStudent(id, firstName, lastName, age, degree);
+        final String first_Name = firstName.trim();
+        final String last_Name = lastName.trim();
+        final String degree_Name = degree.trim();
+
+        if(first_Name.contains(" ") || first_Name.equals("")){
+            model.addAttribute("invalidFirstName", "Invalid First Name");
+            model.addAttribute("idToUpdate", id);
+            model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());
+            model.addAttribute("firstName", first_Name);
+            model.addAttribute("lastName", last_Name);
+            model.addAttribute("age", age);
+            model.addAttribute("degree", degree_Name);
+            return "updateStudent";
+        }
+
+        if(last_Name.contains(" ") || last_Name.equals("")){
+            model.addAttribute("invalidLastName", "Invalid Last Name");
+            model.addAttribute("idToUpdate", id);
+            model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());
+            model.addAttribute("firstName", first_Name);
+            model.addAttribute("lastName", last_Name);
+            model.addAttribute("age", age);
+            model.addAttribute("degree", degree_Name);
+            return "updateStudent";
+        }
+
+        if(degree_Name.isBlank()){
+            model.addAttribute("invalidDegree", "Invalid Degree Name");
+            model.addAttribute("idToUpdate", id);
+            model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());
+            model.addAttribute("firstName", first_Name);
+            model.addAttribute("lastName", last_Name);
+            model.addAttribute("age", age);
+            model.addAttribute("degree", degree_Name);
+            return "updateStudent";
+        }
+
+        try{
+            int parsedAge = Integer.parseInt(age);
+
+            studentService.updateStudent(id, first_Name, last_Name, parsedAge, degree_Name);
+        }
+        catch (NumberFormatException ex){
+            model.addAttribute("invalidAge", "Age must be a valid integer.");
+            model.addAttribute("idToUpdate", id);
+            model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());
+            model.addAttribute("firstName", first_Name);
+            model.addAttribute("lastName", last_Name);
+            model.addAttribute("age", age);
+            model.addAttribute("degree", degree_Name);
+            return "updateStudent";
+        }
 
         return "redirect:/student/list";
     }

@@ -10,16 +10,20 @@
   <div class = "col">
     <div class="header">
       <p th:inline="text" id="card-header" style="font-size: larger; font-weight: bold;">Updating student
-        <span th:inline="text" style="color: #6658d3;">[[${firstName}]] [[${lastName}]]</span>
+        <span th:inline="text" style="color: #6658d3;">[[${firstNameOriginal}]] [[${lastName}]]</span>
       </p>
     </div>
     <div class = "card-body">
       <form action="/student/update" method="post">
         <input type = "hidden" name="idToUpdate" th:value="${idToUpdate}" id="idToUpdate">
-        <input type="text" name="firstName" th:value="${firstName}" id="firstName">
-        <input type="text" name="lastName" th:value="${lastName}" id="lastName">
-        <input type="text" name="age" th:value="${age}" id="age">
-        <input type="text" name="degree" th:value="${degree}" id="degree">
+        <input type="text" name="firstName" th:value="${firstName}" id="firstName" placeholder="First Name">
+        <p id="error-message-firstName" th:text="${invalidFirstName}"></p>
+        <input type="text" name="lastName" th:value="${lastName}" id="lastName" placeholder="Last Name">
+        <p id="error-message-lastName" th:text="${invalidLastName}"></p>
+        <input type="text" name="age" th:value="${age}" id="age" placeholder="Age">
+        <p id="error-message-age" th:text="${invalidAge}"></p>
+        <input type="text" name="degree" th:value="${degree}" id="degree" placeholder="Degree Title">
+        <p id="error-message-degree" th:text="${invalidDegree}"></p>
         <div id="buttons">
           <button name="submitButton" value="update" type="submit">Update</button>
           <button name="submitButton" value="cancel" type="submit">Cancel</button>
@@ -30,5 +34,7 @@
 
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/JavaScript/UpdateStudent.js"></script>
 </body>
 </html>
