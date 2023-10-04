@@ -14,6 +14,17 @@
         </form>
     </div>
 
+    <div class="popup">
+        <div class="popup-content">
+            <h2>Confirmation</h2>
+            <p>Are you sure you want to proceed?</p>
+            <div class="buttons">
+                <button id="confirm">Confirm</button>
+                <button id="cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
 <div class = "tcontainer">
     <table>
         <thead>
@@ -37,7 +48,8 @@
                 <form action="/student/update/" method="get">
                     <button id="updateBtn" name="idToUpdate" th:value="${student.id}" type="submit">Update</button>
                 </form>
-                <form action="/student/list" method="post">
+                <form action="/student/list" method="post" id="deleteForm">
+                    <input type="hidden" name="id" th:value="${student.id}" />
                     <button id="deleteBtn" name="id" th:value="${student.id}" type="submit">Delete</button>
                 </form>
             </td>
@@ -45,6 +57,8 @@
         </tbody>
     </table>
 </div>
+
+    <script src="/JavaScript/StudentList.js"></script>
 
 </body>
 </html>

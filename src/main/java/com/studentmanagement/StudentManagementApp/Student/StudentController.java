@@ -199,7 +199,8 @@ public class StudentController {
      */
     @PostMapping("/list")
     public String deleteStudent(@RequestParam("id") Long id){
-        studentService.deleteStudent(id);
+        System.out.println("Received ID: " + id);
+       studentService.deleteStudent(id);
         return "redirect:/student/list";
     }
 
