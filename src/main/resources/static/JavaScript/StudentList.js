@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var confirmButton = document.getElementById("confirm");
     var cancelButton = document.getElementById("cancel");
     var deleteButtons = document.querySelectorAll(".delete-btn");
-    var forms = document.querySelectorAll("form"); // Select all forms on the page
+    var forms = document.querySelectorAll("#deleteForm"); // Select all forms on the page
     var selectedIndex;
 
     // Attach an event listener to each form to prevent submission
@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Find the hidden input with name="id" within the form
             var idInput = form.querySelector("input[name='id']");
-
             // Get the value of the "id" input element
             var postedID = idInput.value;
             selectedIndex = index;
