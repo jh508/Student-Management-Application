@@ -70,6 +70,7 @@ button:hover{
     margin: 10px;
     padding: 10px 20px;
     cursor: pointer;
+    color: white;
 }
 
 #cancel{
@@ -78,6 +79,7 @@ button:hover{
     background-color: #dc3545;
     padding: 10px 20px;
     cursor: pointer;
+    color: white;
 }
 
 #newEntry{
