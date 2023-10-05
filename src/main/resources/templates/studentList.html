@@ -9,7 +9,7 @@
 <div class = "container">
     <div class="titleContainer">
         <h1>Student List</h1>
-        <form action="/student/add" method="get">
+        <form action="/student/new/" method="get">
             <button id="newEntry" type="submit">New Entry</button>
         </form>
     </div>
@@ -45,8 +45,8 @@
             <td th:text="${student.age}"></td>
             <td th:text="${student.degree}"></td>
             <td id="buttons">
-                <form action="/student/update/" method="get">
-                    <button id="updateBtn" name="idToUpdate" th:value="${student.id}" type="submit">Update</button>
+                <form th:action="@{'/student/update/user/' + ${student.id}}" method="get">
+                    <button id="updateBtn" type="submit">Update</button>
                 </form>
                 <form action="/student/list" method="post" id="deleteForm">
                     <input type="hidden" name="id" th:value="${student.id}" />

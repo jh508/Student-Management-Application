@@ -19,7 +19,7 @@ public class StudentController {
      *
      * @return The name of the view template, "addStudent".
      */
-    @GetMapping("/add")
+    @GetMapping("/new/")
     public String addStudent() {
 
         return "addStudent";
@@ -98,8 +98,8 @@ public class StudentController {
      * @param model       The Spring model to which the student data is added.
      * @return Redirects the user to the student list page.
      */
-    @GetMapping("/update/")
-    public String updateStudents(@RequestParam("idToUpdate") long id, Model model)
+    @GetMapping("/update/user/{id}")
+    public String updateStudents(@PathVariable Long id, Model model)
     {
         model.addAttribute("idToUpdate", id);
         model.addAttribute("firstNameOriginal", studentService.getStudent(id).getFirstName());

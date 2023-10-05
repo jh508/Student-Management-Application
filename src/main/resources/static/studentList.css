@@ -73,6 +73,11 @@ button:hover{
     color: white;
 }
 
+#confirm:hover{
+    transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 #cancel{
     margin: 10px;
     border: transparent;
@@ -82,12 +87,22 @@ button:hover{
     color: white;
 }
 
+#cancel:hover{
+    transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 #newEntry{
     background-color: #198754;
     border: transparent;
     color: white;
     height: 30px;
     width: 100px;
+}
+
+#newEntry:hover{
+    transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .tcontainer{
@@ -102,6 +117,10 @@ button:hover{
     height: 30px;
 }
 
+#updateBtn:hover{
+    transform: scale(1.02);
+}
+
 #buttons{
     display: flex;
     gap: 10px;
@@ -112,6 +131,10 @@ button:hover{
      border: transparent;
      color: white;
      height: 30px;
+ }
+
+ #deleteBtn:hover{
+     transform: scale(1.02);
  }
 
 h1 {
