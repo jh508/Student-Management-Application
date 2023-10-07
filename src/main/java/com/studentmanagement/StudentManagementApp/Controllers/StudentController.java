@@ -1,7 +1,8 @@
-package com.studentmanagement.StudentManagementApp.Student;
+package com.studentmanagement.StudentManagementApp.Controllers;
 
 
 import com.studentmanagement.StudentManagementApp.Services.StudentService;
+import com.studentmanagement.StudentManagementApp.Student.Student;
 import com.studentmanagement.StudentManagementApp.Utilities.StudentControllerUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
