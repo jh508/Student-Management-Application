@@ -49,18 +49,27 @@ public class StudentController {
             return "redirect:/student/list";
         }
 
-        if(firstName.contains(" ") || firstName.equals("") || StudentControllerUtility.containsInvalidCharacters(firstName)){
+        if(firstName.contains(" ") || firstName.isBlank() || StudentControllerUtility.containsInvalidCharacters(firstName)){
             model.addAttribute("invalidFirstName", "Invalid First Name");
+            model.addAttribute("lastName", lastName);
+            model.addAttribute("age", age);
+            model.addAttribute("degree", degree);
             return "addStudent";
         }
 
-        if(lastName.contains(" ") || lastName.equals("") || StudentControllerUtility.containsInvalidCharacters(lastName)){
+        if(lastName.contains(" ") || lastName.isBlank() || StudentControllerUtility.containsInvalidCharacters(lastName)){
             model.addAttribute("invalidLastName", "Invalid Last Name");
+            model.addAttribute("firstName", firstName);
+            model.addAttribute("age", age);
+            model.addAttribute("degree", degree);
             return "addStudent";
         }
 
         if(degree.isBlank() || StudentControllerUtility.containsInvalidCharacters(degree)){
             model.addAttribute("invalidDegree", "Invalid Degree Name");
+            model.addAttribute("firstName", firstName);
+            model.addAttribute("lastName", lastName);
+            model.addAttribute("age", age);
             return "addStudent";
         }
 
@@ -71,6 +80,9 @@ public class StudentController {
         }
         catch (NumberFormatException ex){
             model.addAttribute("invalidAge", "Age must be a valid integer.");
+            model.addAttribute("firstName", firstName);
+            model.addAttribute("lastName", lastName);
+            model.addAttribute("degree", degree);
             return "addStudent";
         }
 
