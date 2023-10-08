@@ -1,0 +1,35 @@
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#warning{
+    text-align: center;
+}
+
+#button{
+    width: 100%;
+    align-self: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #6658d3;
+    color: #fff;
+    cursor: pointer;
+}
+
+a{
+    width: 50%;
+    align-self: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #6658d3;
+    color: #fff;
+    text-decoration: none;
+}
