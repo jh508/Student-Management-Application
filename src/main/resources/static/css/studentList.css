@@ -41,6 +41,15 @@ tr:hover {
     font-weight: bold;
 }
 
+#logout{
+    background-color: #198754;
+    border: transparent;
+    color: white;
+    height: 30px;
+    width: 100px;
+    margin-bottom: 30px;
+}
+
 button:hover{
     cursor: pointer;
 }
