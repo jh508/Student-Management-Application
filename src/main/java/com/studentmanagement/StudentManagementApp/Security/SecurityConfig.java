@@ -2,7 +2,6 @@ package com.studentmanagement.StudentManagementApp.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,13 +26,13 @@ public class SecurityConfig {
                         .requestMatchers("css/**").permitAll()
                         .requestMatchers("/student/list").hasRole("EMPLOYEE")
                         .requestMatchers("/student/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/student/**").hasRole("EMPLOYEE")
-                        .requestMatchers(HttpMethod.DELETE, "/student/**").hasRole("EMPLOYEE")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/student/list", true)
                         .loginProcessingUrl("/authenticateuser")
-                        .permitAll());
+                        .permitAll()
+                )
+                .logout((logout) -> logout.permitAll());
 
         return http.build();
     }
