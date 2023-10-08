@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
 <head>
     <meta charset="UTF-8">
     <title>Student List</title>
@@ -9,11 +9,15 @@
 <div class = "container">
     <div class="titleContainer">
         <h1>Student List</h1>
-        <form action="/student/new/" method="get">
+        <form sec:authorize="hasRole('ROLE_ADMIN')" action="/student/new/" method="get">
             <button id="newEntry" type="submit">New Entry</button>
         </form>
     </div>
-
+    <div class="userInfo">
+        <p>You are logged in as <span id="username" sec:authentication="name"></span></p>
+        <form action="#" th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button></form>
+    </div>
     <div class="popup">
         <div class="popup-content">
             <h2>Confirmation</h2>
@@ -34,7 +38,7 @@
             <th>Last Name</th>
             <th>Age</th>
             <th>Degree</th>
-            <th>Modify</th>
+            <th sec:authorize="hasRole('ROLE_ADMIN')">Modify</th>
         </tr>
         </thead>
         <tbody>
@@ -44,11 +48,12 @@
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.age}"></td>
             <td th:text="${student.degree}"></td>
-            <td id="buttons">
+
+            <td sec:authorize="hasRole('ROLE_ADMIN')" id="buttons">
                 <form th:action="@{'/student/update/user/' + ${student.id}}" method="get">
                     <button id="updateBtn" type="submit">Update</button>
                 </form>
-                <form action="/student/list" method="post" id="deleteForm">
+                <form th:action="@{/student/list}" method="post" id="deleteForm">
                     <input type="hidden" name="id" th:value="${student.id}" />
                     <button id="deleteBtn" name="id" th:value="${student.id}" type="submit">Delete</button>
                 </form>
@@ -56,7 +61,6 @@
         </tr>
         </tbody>
     </table>
-</div>
 
     <script src="/JavaScript/StudentList.js"></script>
 

@@ -12,7 +12,7 @@
       <p id="card-header">Add Student to the Database</p>
     </div>
     <div class="card-body">
-      <form action="/student/add" method="post">
+      <form th:action="@{/student/add}" method="post">
         <input type="text" name="firstName" th:value="${firstName}" id="firstName" placeholder="First Name">
         <p id="error-message-firstName" th:text="${invalidFirstName}"></p>
         <input type="text" name="lastName" th:value="${lastName}" id="lastName" placeholder="Last Name">

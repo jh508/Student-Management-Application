@@ -14,7 +14,7 @@
       </p>
     </div>
     <div class = "card-body">
-      <form action="/student/update" method="post">
+      <form th:action="@{/student/update}" method="post">
         <input type = "hidden" name="idToUpdate" th:value="${idToUpdate}" id="idToUpdate">
         <input type="text" name="firstName" th:value="${firstName}" id="firstName" placeholder="First Name">
         <p id="error-message-firstName" th:text="${invalidFirstName}"></p>
