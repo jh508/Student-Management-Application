@@ -69,6 +69,7 @@ tr:hover {
     display: inline-block;
     position: relative;
     text-align: center;
+    cursor: pointer;
   }
 
   @keyframes fade-down {
@@ -78,7 +79,7 @@ tr:hover {
     }
 
     100% {
-      max-height: 200px; /* Adjust the max height to suit your content */
+      max-height: 300px; /* Adjust the max height to suit your content */
       opacity: 1;
 
     }
@@ -104,18 +105,12 @@ tr:hover {
     margin-top: 10px;
     left: 50%;
     transform: translate(-50%, 0);
-    animation: fade-down 0.5s;
+    animation: fade-down 1.5s;
   }
 
-  #hover{
-    cursor: pointer;
+  .dropdown-content p ,i{
+    animation: fade-down-text 1s;
   }
-
-  .dropdown-content form{
-    margin-bottom: -20px;
-  }
-
-
 
   .dropdown-content a {
     color: black;
@@ -124,10 +119,14 @@ tr:hover {
     display: block;
   }
 
-  .dropdown-content a button{
-      animation: fade-down-text 1s;
+
+  #hover{
+    cursor: pointer;
   }
 
+  .dropdown-content form{
+    margin-bottom: -20px;
+  }
 
   .dropdown-content a:hover {
     background-color: #f2f2f2;
