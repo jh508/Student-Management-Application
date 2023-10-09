@@ -22,24 +22,116 @@ tr:hover {
 
 .titleContainer{
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 30px;
-    justify-content: center;
+    width: 100%;
+}
+
+#toggleArrowDown{
+    margin-left: 5px;
+    display: none;
+}
+
+#toggleArrowUp){
+  margin-left: 5px;
+}
+
+.titleForm{
+    width: 75%;
+    gap: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
 }
 
 .userInfo{
+    width: 50%;
+    margin-right: 50px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
-
 
 #username{
-    color: blue;
-    font-size: larger;
+    margin-left: 5px;
     font-weight: bold;
 }
+
+#userdropname{
+    color: blue;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+  }
+
+  @keyframes fade-down {
+    0% {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    100% {
+      max-height: 200px; /* Adjust the max height to suit your content */
+      opacity: 1;
+
+    }
+  }
+
+  @keyframes fade-down-text{
+    0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: fade-down 0.5s;
+  }
+
+  #hover{
+    cursor: pointer;
+  }
+
+  .dropdown-content form{
+    margin-bottom: -20px;
+  }
+
+
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a button{
+      animation: fade-down-text 1s;
+  }
+
+
+  .dropdown-content a:hover {
+    background-color: #f2f2f2;
+  }
 
 #logout{
     background-color: #198754;

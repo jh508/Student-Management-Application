@@ -8,15 +8,33 @@
 <body>
 <div class = "container">
     <div class="titleContainer">
-        <h1>Student List</h1>
-        <form sec:authorize="hasRole('ROLE_ADMIN')" action="/student/new/" method="get">
-            <button id="newEntry" type="submit">New Entry</button>
-        </form>
-    </div>
-    <div class="userInfo">
-        <p>You are logged in as <span id="username" sec:authentication="name"></span></p>
-        <form action="#" th:action="@{/logout}" method="post">
-            <button id="logout" type="submit">Logout</button></form>
+        <div class="titleForm">
+            <h1>Student List</h1>
+            <form sec:authorize="hasRole('ROLE_ADMIN')" action="/student/new/" method="get">
+                <button id="newEntry" type="submit">New Entry</button>
+            </form>
+        </div>
+        <div class="userInfo">
+            <div class="dropdown">
+                <div id="hover">
+                <i id="userProfile" class="fa-solid fa-circle-user fa-2xl" style="color: #49e478;"></i>
+                <span id="username" sec:authentication="name"></span>
+                <i id="toggleArrowUp" class="fa-solid fa-arrow-up fa-xs"></i>
+                <i id="toggleArrowDown" class="fa-sharp fa-solid fa-arrow-down fa-xs"></i>
+                </div>
+                <div class="dropdown-content">
+                    <!-- Add your dropdown menu items here -->
+                    <p>Hello <span id="userdropname" sec:authentication="name">!</span>!</p>
+                    <hr>
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <hr>
+                    <form th:action="@{/logout}" method="post">
+                    <button id="logout" type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="popup">
         <div class="popup-content">
@@ -62,6 +80,8 @@
         </tbody>
     </table>
 
+    <script src="https://kit.fontawesome.com/53b6352d14.js" crossorigin="anonymous"></script>
+    <script src="/JavaScript/ProfileInteractivity.js"></script>
     <script src="/JavaScript/StudentList.js"></script>
 
 </body>
