@@ -83,8 +83,11 @@ tr:hover {
     display: inline-block;
     position: relative;
     text-align: center;
-    cursor: pointer;
   }
+
+    .dropdown i{
+      cursor: pointer;
+    }
 
   @keyframes fade-down {
     0% {
