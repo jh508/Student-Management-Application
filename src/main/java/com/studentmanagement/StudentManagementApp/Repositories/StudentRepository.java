@@ -5,12 +5,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository("database")
 public class StudentRepository implements IStudentRepository{
-
     private final EntityManager entityManager;
     @Autowired
     public StudentRepository(EntityManager entityManager) {
@@ -39,8 +37,6 @@ public class StudentRepository implements IStudentRepository{
        student.setAge(age);
        student.setDegree(degree);
     }
-
-
 
     @Override
     public Student findbyID(Long id) {

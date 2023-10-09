@@ -2,14 +2,12 @@ package com.studentmanagement.StudentManagementApp.Repositories;
 
 import com.studentmanagement.StudentManagementApp.Student.Student;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository("arraylist")
 public class StudentArrayListRepository implements IStudentRepository{
     private final List<Student> studentList = new ArrayList<>();
-
 
     @Override
     public void addStudent(Student student) {
@@ -47,8 +45,6 @@ public class StudentArrayListRepository implements IStudentRepository{
 
         return id;
     }
-
-
 
     @Override
     public List<Student> getStudents() {

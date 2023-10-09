@@ -1,6 +1,5 @@
 package com.studentmanagement.StudentManagementApp.Student;
 
-
 import jakarta.persistence.*;
 
 @Entity

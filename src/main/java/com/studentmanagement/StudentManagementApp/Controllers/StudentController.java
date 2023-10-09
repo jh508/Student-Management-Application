@@ -22,7 +22,6 @@ public class StudentController {
      */
     @GetMapping("/new/")
     public String addStudent() {
-
         return "addStudent";
     }
 
@@ -122,7 +121,6 @@ public class StudentController {
         model.addAttribute("degree", studentService.getStudent(id).getDegree());
         return "updateStudent";
     }
-
 
     /**
      * Handles a POST request to update student information in the database.

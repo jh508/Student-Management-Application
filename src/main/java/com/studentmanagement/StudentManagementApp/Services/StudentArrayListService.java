@@ -14,7 +14,7 @@ import java.util.Objects;
 public class StudentArrayListService implements IStudentService {
     @Autowired
     @Qualifier("arraylist")
-   private IStudentRepository studentRepository;
+    private IStudentRepository studentRepository;
 
     @Override
     public void addStudent(Student student) {
@@ -23,11 +23,8 @@ public class StudentArrayListService implements IStudentService {
 
     @Override
     public void deleteStudent(Long id) {
-
         studentRepository.getStudents().removeIf(s -> Objects.equals(s.getId(), id));
     }
-
-
 
     @Override
     public void updateStudent(Long id, String firstName, String lastName, int age, String degree) {
