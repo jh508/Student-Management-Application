@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Student List</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/studentList.css?version=51}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/studentList.css?version=51}" id="cssLink" />
 </head>
 <body>
 <div class = "container">
@@ -28,6 +28,8 @@
                     <hr>
                     <a href="#">Profile</a>
                     <a href="#">Settings</a>
+                    <hr>
+                    <p id="nightText">Night Mode <i id="nightOff" class="fa-solid fa-toggle-off fa-xl"></i> <i id="nightOn" class="fa-solid fa-toggle-on fa-xl"></i></p>
                     <hr>
                     <form th:action="@{/logout}" method="post">
                     <button id="logout" type="submit">Logout</button>
