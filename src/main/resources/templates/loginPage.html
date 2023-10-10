@@ -18,8 +18,12 @@
             <form action="#" th:action="@{/authenticateuser}" method="post">
                 <input type="text" name="username" id="username" placeholder="Username">
                 <input type="password" name="password" id="password" placeholder="Password">
+                <a id="forgot" href="#">Forgot Password?</a>
                 <button name="submitButton" value="update" type="submit">Sign in</button>
             </form>
+        </div>
+        <div id="registerDiv">
+            <a id="register" href="/register/newuser">New User? Register Here!</a>
         </div>
     </div>
 </div>

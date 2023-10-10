@@ -1,6 +1,6 @@
 package com.studentmanagement.StudentManagementApp.Services;
 
-import com.studentmanagement.StudentManagementApp.Student.Student;
+import com.studentmanagement.StudentManagementApp.DTOs.Student;
 import org.springframework.stereotype.Component;
 import java.util.List;
 

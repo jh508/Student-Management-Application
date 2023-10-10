@@ -1,4 +1,4 @@
-package com.studentmanagement.StudentManagementApp.Student;
+package com.studentmanagement.StudentManagementApp.DTOs;
 
 import jakarta.persistence.*;
 
