@@ -140,6 +140,28 @@ form button {
     color: #fff;
 }
 
+#loginError{
+     display: flex;
+     width: 100%;
+     justify-content: center;
+     background-color: red;
+}
+
+#loginText{
+    color: white;
+}
+
+#logoutError{
+     display: flex;
+     width: 100%;
+     justify-content: center;
+     background-color: #a1ffa1;
+}
+
+#logoutText{
+    color: #007500;
+}
+
 #cancelBtn:hover{
     cursor: pointer;
     transform: scale(1.02);

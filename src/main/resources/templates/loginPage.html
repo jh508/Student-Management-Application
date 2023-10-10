@@ -12,8 +12,8 @@
             <p id="card-header-title">Sign in</p>
 
         </div>
-        <div th:if="${param.error}"><p id="card-header-title">Bad credentials</p></div>
-        <div th:if="${param.logout}"><p id="card-header-title">Logged out successfully</p></div>
+        <div id="loginError" th:if="${param.error}"><p id="loginText">Bad credentials</p></div>
+        <div id="logoutError" th:if="${param.logout}"><p id="logoutText">Logged out successfully</p></div>
         <div class="card-body">
             <form action="#" th:action="@{/authenticateuser}" method="post">
                 <input type="text" name="username" id="username" placeholder="Username">
