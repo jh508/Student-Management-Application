@@ -16,7 +16,7 @@
 
     </div>
     <div class="card-body">
-      <form action="#" th:action="@{/register/newuser}" method="post" th:object = "${User}">
+      <form action="#" th:action="@{/register/newuser}" method="post" th:object = "${user}">
         <label for="username" th:text="${registrationError}">
         </label>
         <input type="text" id="username" th:field="*{username}" placeholder="Username">

@@ -21,7 +21,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests((configurer) -> configurer
-                        .requestMatchers("css/**").permitAll()
+                        .requestMatchers("css/**", "/register/newuser").permitAll()
                         .requestMatchers("/student/list").hasRole("EMPLOYEE")
                         .requestMatchers("/student/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
