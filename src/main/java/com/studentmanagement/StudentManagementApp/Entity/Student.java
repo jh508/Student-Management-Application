@@ -1,6 +1,7 @@
 package com.studentmanagement.StudentManagementApp.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "student")
@@ -11,12 +12,19 @@ public class Student {
     @Column(name = "id")
     private Long id;
     @Column(name = "first_name")
+    @NotNull(message = "First name is required")
+    @Pattern(regexp = "^[a-zA-Z]*$", message = "Special characters are not allowed")
     private String firstName;
     @Column(name = "last_name")
+    @NotNull(message = "Last name cannot be empty.")
+    @Pattern(regexp = "^[a-zA-Z]*$", message = "Special characters are not allowed")
     private String lastName;
     @Column(name = "age")
+    @Min(value = 18, message = "Must be at least 18 or over")
     private int age;
     @Column(name = "degree")
+    @NotNull(message = "Degree title is required")
+    @Pattern(regexp = "^[a-zA-Z]*$", message = "Special characters are not allowed")
     private String degree;
 
     public Student(){
