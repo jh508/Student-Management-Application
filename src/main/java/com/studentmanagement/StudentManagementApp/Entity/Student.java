@@ -27,8 +27,7 @@ public class Student {
     @Pattern(regexp = "^[a-zA-Z]*$", message = "Special characters are not allowed")
     private String degree;
 
-    public Student(){
-    }
+    public Student(){}
 
     public Student(String firstName, String lastName, int age, String degree) {
         this.firstName = firstName;

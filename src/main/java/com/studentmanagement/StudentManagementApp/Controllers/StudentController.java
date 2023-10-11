@@ -36,7 +36,6 @@ public class StudentController {
         return "addStudent";
     }
 
-
     @PostMapping("/add")
     public String postStudent(@Valid @ModelAttribute("student") Student student,
                               BindingResult bindingResult,
@@ -88,7 +87,6 @@ public class StudentController {
         return "updateStudent";
     }
 
-
     @PostMapping("/update")
     public String updateStudentRequest(@Valid @ModelAttribute("student") Student student,
                                        BindingResult bindingResult,
@@ -122,7 +120,7 @@ public class StudentController {
     @PostMapping("/list")
     public String deleteStudent(@RequestParam("id") Long id){
         System.out.println("Received ID: " + id);
-       studentService.deleteStudent(id);
+        studentService.deleteStudent(id);
         return "redirect:/student/list";
     }
 
