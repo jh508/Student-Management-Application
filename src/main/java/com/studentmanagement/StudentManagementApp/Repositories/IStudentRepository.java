@@ -1,6 +1,6 @@
 package com.studentmanagement.StudentManagementApp.Repositories;
 
-import com.studentmanagement.StudentManagementApp.DTOs.Student;
+import com.studentmanagement.StudentManagementApp.Entity.Student;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 

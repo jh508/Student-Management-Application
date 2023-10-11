@@ -1,4 +1,4 @@
-package com.studentmanagement.StudentManagementApp.DTOs;
+package com.studentmanagement.StudentManagementApp.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

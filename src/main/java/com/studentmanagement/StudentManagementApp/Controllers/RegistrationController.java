@@ -1,6 +1,6 @@
 package com.studentmanagement.StudentManagementApp.Controllers;
 
-import com.studentmanagement.StudentManagementApp.DTOs.User;
+import com.studentmanagement.StudentManagementApp.Entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

@@ -1,7 +1,7 @@
 package com.studentmanagement.StudentManagementApp.Services;
 
 import com.studentmanagement.StudentManagementApp.Repositories.IStudentRepository;
-import com.studentmanagement.StudentManagementApp.DTOs.Student;
+import com.studentmanagement.StudentManagementApp.Entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

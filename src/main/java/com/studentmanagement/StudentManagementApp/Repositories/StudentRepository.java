@@ -1,6 +1,6 @@
 package com.studentmanagement.StudentManagementApp.Repositories;
 
-import com.studentmanagement.StudentManagementApp.DTOs.Student;
+import com.studentmanagement.StudentManagementApp.Entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
