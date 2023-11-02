@@ -50,4 +50,9 @@ public class StudentArrayListRepository implements IStudentRepository{
     public List<Student> getStudents() {
         return this.studentList;
     }
+
+    @Override
+    public List<Student> getStudentsByUsername(String username) {
+        return null;
+    }
 }

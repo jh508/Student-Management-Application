@@ -11,4 +11,6 @@ public interface IStudentRepository {
     void updateStudent(Long id, String firstName, String lastName, int age, String degree);
     Student findbyID(Long id);
     List<Student> getStudents();
+
+    List<Student> getStudentsByUsername(String username);
 }

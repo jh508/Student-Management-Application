@@ -40,4 +40,9 @@ public class StudentService implements IStudentService {
         return studentRepository.getStudents();
     }
 
+    @Override
+    public List<Student> getStudentsByUserID(String username) {
+        return studentRepository.getStudentsByUsername(username);
+    }
+
 }

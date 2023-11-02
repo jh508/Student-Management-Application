@@ -45,4 +45,9 @@ public class StudentArrayListService implements IStudentService {
     public List<Student> getStudents() {
         return studentRepository.getStudents();
     }
+
+    @Override
+    public List<Student> getStudentsByUserID(String username) {
+        return null;
+    }
 }

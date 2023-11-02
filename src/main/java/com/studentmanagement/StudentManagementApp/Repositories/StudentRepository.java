@@ -49,4 +49,13 @@ public class StudentRepository implements IStudentRepository{
 
         return entityManager.createQuery(jpql, Student.class).getResultList();
     }
+
+    @Override
+    public List<Student> getStudentsByUsername(String username) {
+        String jpql = "SELECT s FROM Student s WHERE s.user_id = :userId";
+
+        return entityManager.createQuery(jpql, Student.class)
+                .setParameter("userId", username)
+                .getResultList();
+    }
 }

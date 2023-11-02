@@ -12,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/student")
 public class StudentController {
@@ -40,7 +42,7 @@ public class StudentController {
     public String postStudent(@Valid @ModelAttribute("student") Student student,
                               BindingResult bindingResult,
                               @RequestParam("submitButton") String button,
-                              Model model)
+                              Model model, Principal principal)
     {
 
         if("cancel".equals(button)){
@@ -51,6 +53,8 @@ public class StudentController {
             return "addStudent.html";
         }
 
+        String username = principal.getName();
+        student.setUser_id(username);
         studentService.addStudent(student);
         return "redirect:/student/list";
     }
@@ -63,8 +67,9 @@ public class StudentController {
      */
 
     @GetMapping("/list")
-    public String getStudents(Model model) {
-        model.addAttribute("studentArrayList", studentService.getStudents());
+    public String getStudents(Model model, Principal principal) {
+        String username = principal.getName();
+        model.addAttribute("studentArrayList", studentService.getStudentsByUserID(username));
         return "studentList";
     }
 

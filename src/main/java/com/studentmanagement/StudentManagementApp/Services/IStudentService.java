@@ -12,4 +12,7 @@ public interface IStudentService {
     void updateStudent(Long id, String firstName, String lastName, int age, String degree);
     Student getStudent(Long id);
     List<Student> getStudents();
+
+    List<Student> getStudentsByUserID(String username);
+
 }

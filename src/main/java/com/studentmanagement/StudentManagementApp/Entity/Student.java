@@ -11,6 +11,17 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    @Column(name = "user_id")
+    private String user_id;
     @Column(name = "first_name")
     @NotNull(message = "First name is required")
     @Pattern(regexp = "^[a-zA-Z]*$", message = "Special characters are not allowed")
