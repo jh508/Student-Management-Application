@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
 <head>
     <meta charset="UTF-8">
-    <title>Student List</title>
+    <title>My list</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/studentList.css?version=51}" id="cssLink" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 <div class = "container">
     <div class="titleContainer">
         <div class="titleForm">
-            <h1>Student List</h1>
+            <h1 th:text="${#authentication.name} + '\'s List'"></h1>
             <form sec:authorize="hasRole('ROLE_ADMIN')" action="/student/new/" method="get">
                 <button id="newEntry" type="submit">New Entry</button>
             </form>

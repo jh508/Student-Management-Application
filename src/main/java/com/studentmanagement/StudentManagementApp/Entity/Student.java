@@ -35,7 +35,7 @@ public class Student {
     private int age;
     @Column(name = "degree")
     @NotNull(message = "Degree title is required")
-    @Pattern(regexp = "^[a-zA-Z]*$", message = "Special characters are not allowed")
+    @Pattern(regexp = "^[a-zA-Z ]*$", message = "Special characters are not allowed")
     private String degree;
 
     public Student(){}
