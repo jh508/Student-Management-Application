@@ -1,10 +1,12 @@
 package com.studentmanagement.StudentManagementApp.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -17,6 +19,11 @@ public class User {
     @NotNull(message = "Username is required")
     @Size(min = 8, message = "You must have at least 8 characters in your password")
     private String password;
+
+    private boolean enabled;
+
+
+
 
     public User(){};
 
@@ -40,4 +47,14 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+
 }
