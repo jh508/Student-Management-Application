@@ -9,3 +9,4 @@ A simple, yet secure spring boot web application designed as a way of creating u
 - **Thymeleaf Templating:** Leverages Thymeleaf for server-side rendering of HTML templates.
 - **Hibernate ORM:** Utilizes Hibernate for seamless object-to-relational mapping.
 - **SQL Database:** Integrates with a relational database using SQL for data storage.
+- **Night Mode:** Has a toggle for night mode, which is saved using local storage
